@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    background-color: #F3F5FC;
+    color: #0A3871;
+}
+
+.cabecalho__logo {
+    padding: 2% 0% 0% 2%;
+}
+
+.apresentacao {
+    padding: 5% 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px; /* Ajustado */
+}
+
+.apresentacao__conteudo {
+    width: 100%; /* Ajustado */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Ajustado */
+}
+
+.apresentacao__conteudo__texto {
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem; /* Ajustado */
+    font-weight: 400;
+    color: #0A3871;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    width: 100%;
+    height: 3rem; /* Ajustado */
+}
+
+.apresentacao__conteudo__orientacao {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #495057;
+}
+
+.apresentacao__botoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* Ajustado */
+    gap: 12px; /* Ajustado */
+}
+
+.cripto__botao, .decrip__botao {
+    display: flex;
+    justify-content: center;
+    border: none;
+    width: 150px; /* Ajustado */
+    text-align: center;
+    border-radius: 24px;
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    padding: 16px 0; /* Ajustado */
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.cripto__botao {
+    color: #FFFFFF;
+    background-color: #0A3871;
+}
+
+.decrip__botao {
+    color: #0A3871;
+    background-color: #D8DFE8;
+}
+
+.apresentacao__resultado {
+    width: 30%;
+    padding: 24px;
+    font-family: "Inter", sans-serif;
+    font-size: 1.25rem; /* Ajustado */
+    font-weight: 400;
+    border-radius: 16px; /* Ajustado */
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajustado */
+    text-align: center; /* Ajustado */
+}
+
+.output__Text {
+    font-family: "Inter", sans-serif;
+    color: #343A40;
+    font-size: 1.5rem; /* Ajustado */
+    font-weight: 600;
+}
+
+.output__Text2 {
+    font-family: "Inter", sans-serif;
+    color: #0A3871;
+    font-size: 1rem; /* Ajustado */
+    font-weight: 600;
+}
+
+.rodape {
+    padding: 16px; /* Ajustado */
+    color: #FFFFFF;
+    background-color: #0A3871;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 1rem; /* Ajustado */
+    font-weight: 400;
+}
