@@ -1,37 +1,53 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafio Challenge</title>
+    <title>Desafio Decodificador</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <img class="cabecalho__logo" src="./assets/Logo.png" alt="Logo">
     </header>
     <main class="apresentacao">
+        <div class="avisos">         
+        </div>
+        <button id="btn-colar" class="colar">
+            <span class="mif-paste"></span>
+        </button>
         <section class="apresentacao__conteudo">
-            <textarea class="apresentacao__conteudo__texto" placeholder="Digite o seu texto"></textarea>
+            <textarea id="message_area" class="apresentacao__conteudo__texto" placeholder="Digite o seu texto"></textarea>
             <div class="apresentacao__conteudo__img">
                 <img src="./assets/Group.png" alt="Imagem de orientação">
                 <h1 class="apresentacao__conteudo__orientacao">Apenas letras minúsculas e sem acento.</h1>
             </div>
             <div class="apresentacao__botoes">
-                <button class="cripto__botao">Criptografar</button>
-                <button class="decrip__botao">Descriptografar</button>
+                <button id="cripto__botao" class="cripto__botao">Criptografar</button>
+                <button id="decrip__botao" class="decrip__botao">Descriptografar</button>
             </div>
         </section>
         <div class="apresentacao__resultado">
-            <img src="./assets/High quality products 1 1.svg" alt="Imagem de resultado">
-            <h2 class="output__Text">Nenhuma mensagem encontrada.</h2>
-            <p class="output__Text2">Digite um texto que você deseja criptografar ou descriptografar.</p>
+            <div class="resposta">
+                <div class="textoResult">
+                </div>
+                <button id="btn-copiar">
+                    <span class="mif-copy"></span>
+                    Copiar
+                </button>
+            </div>
+            <div class="pre-respostas ">
+                <img class="apresentacao__resultado__img" src="./assets/High quality products 1 1.svg" alt="Imagem de resultado">
+                <h2 id="TextoSemMensagem"> Nenhuma mensagem encontrada</h2>
+                <p class="output__Text2">Digite um texto que você deseja criptografar ou descriptografar.</p>
+            </div>
         </div>
     </main>
     <footer class="rodape">
-        <p>Desenvolvido por Nayara Stephanie.</p>
+        <p2>Desenvolvido por Nayara Stephanie</p2>
     </footer>
-    <script src="script.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
