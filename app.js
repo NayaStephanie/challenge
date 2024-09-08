@@ -1,75 +1,77 @@
-// Funções de criptografia e descriptografia
+const criptografarBtn = document.getElementById('cripto__botao');
+const descriptografarBtn = document.getElementById('decrip__botao');
+const textArea = document.getElementById('message_area');
+const resultado = document.getElementsByClassName('textoResult');
+const copiar = document.getElementById('btn-copiar');
+const preResposta = document.getElementsByClassName('pre-respostas');
+const resposta = document.getElementsByClassName('resposta');
+const alerta = document.getElementsByClassName('avisos');
+const colar = document.getElementById('btn-colar');
 
-function criptografar(texto) {
-    const regras = {
-        'e': 'enter',
-        'i': 'imes',
-        'a': 'ai',
-        'o': 'ober',
-        'u': 'ufat'
-    };
-    return texto.split('').map(char => regras[char] || char).join('');
-}
+// criptografar
+criptografarBtn.addEventListener('click', () => {
+    if (textArea.value === '') {
+        alerta[0].innerHTML = 'Digite algo para ser criptografado';
+        alerta[0].style.display = 'block';
+        alerta[0].classList.add('error');
+        setTimeout(() => {
+            alerta[0].style.display = 'none';
+        }, 3000);
+        return;
+    } else {
+        const frase = textArea.value;
+        const fraseMinuscula = frase.toLowerCase();
+        const criptografada = fraseMinuscula.replace(/i/g, 'imes').replace(/a/g, 'ai').replace(/e/g, 'enter').replace(/o/g, 'ober').replace(/u/g, 'ufat');
+        
+        resultado[0].innerHTML = criptografada;
 
-function descriptografar(texto) {
-    const regras = {
-        'enter': 'e',
-        'imes': 'i',
-        'ai': 'a',
-        'ober': 'o',
-        'ufat': 'u'
-    };
-    let regex = new RegExp(Object.keys(regras).join('|'), 'g');
-    return texto.replace(regex, match => regras[match]);
-}
+        preResposta[0].style.display = 'none';
+        resposta[0].style.display = 'flex';
 
-// Função para copiar o texto para a área de transferência
+        textArea.value = '';
+    }
+});
 
-function copiarParaAreaDeTransferencia(texto) {
-    navigator.clipboard.writeText(texto).then(() => {
-        alert('Texto copiado para a área de transferência!');
-    }).catch(err => {
-        alert('Falha ao copiar o texto: ', err);
-    });
-}
+// descriptografar
+descriptografarBtn.addEventListener('click', () => {
+    if (textArea.value === '') {
+        alerta[0].innerHTML = 'Digite algo para ser descriptografado';
+        alerta[0].style.display = 'block';
+        alerta[0].classList.add('error');
+        setTimeout(() => {
+            alerta[0].style.display = 'none';
+        }, 3000);
+        return;
+    } else {
+        const frase = textArea.value;
+        const descriptografada = frase.replace(/ai/g, 'a').replace(/enter/g, 'e').replace(/imes/g, 'i').replace(/ober/g, 'o').replace(/ufat/g, 'u');
+        
+        resultado[0].innerHTML = descriptografada;
 
-// Função principal que manipula os botões e o texto
+        preResposta[0].style.display = 'none';
+        resposta[0].style.display = 'flex';
 
-document.addEventListener('DOMContentLoaded', () => {
-    const criptografarBtn = document.querySelector('.cripto__botao');
-    const descriptografarBtn = document.querySelector('.decrip__botao');
-    const textarea = document.querySelector('.apresentacao__conteudo__texto');
-    const resultadoTexto = document.querySelector('.output__Text');
-    const resultadoTexto2 = document.querySelector('.output__Text2');
+        textArea.value = '';
+    }
+});
 
-    criptografarBtn.addEventListener('click', () => {
-        const texto = textarea.value.toLowerCase();
-        if (/^[a-z\s]*$/.test(texto)) {  // Verifica se o texto contém apenas letras minúsculas e espaços
-            const resultado = criptografar(texto);
-            resultadoTexto.textContent = resultado;
-            resultadoTexto2.textContent = '';
-        } else {
-            alert('Por favor, digite apenas letras minúsculas e sem acento.');
-        }
-    });
+// copiar
+copiar.addEventListener('click', () => {
+    const copiado = resultado[0].innerText;
+    navigator.clipboard.writeText(copiado);
+    copiar.innerHTML = 'Copiado!';
+});
 
-    descriptografarBtn.addEventListener('click', () => {
-        const texto = textarea.value.toLowerCase();
-        if (/^[a-z\s]*$/.test(texto)) {  // Verifica se o texto contém apenas letras minúsculas e espaços
-            const resultado = descriptografar(texto);
-            resultadoTexto.textContent = resultado;
-            resultadoTexto2.textContent = '';
-        } else {
-            alert('Por favor, digite apenas letras minúsculas e sem acento.');
-        }
-    });
-
-    const copiarBtn = document.createElement('button');
-    copiarBtn.textContent = 'Copiar';
-    copiarBtn.className = 'copiar__botao';
-    document.querySelector('.apresentacao__botoes').appendChild(copiarBtn);
-
-    copiarBtn.addEventListener('click', () => {
-        copiarParaAreaDeTransferencia(resultadoTexto.textContent || resultadoTexto2.textContent);
+// colar
+colar.addEventListener('click', () => {
+    navigator.clipboard.readText().then(text => {
+        textArea.value = text;
+    }).catch(() => {
+        alerta[0].innerHTML = 'Não foi possível colar';
+        alerta[0].style.display = 'block';
+        alerta[0].classList.add('error');
+        setTimeout(() => {
+            alerta[0].style.display = 'none';
+        }, 3000);
     });
 });
