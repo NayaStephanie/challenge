@@ -4,13 +4,16 @@ Este projeto, desenvolvido como parte do programa Oracle ONE em parceria com a A
 ---
 ## **Toque para acessar**
 ---
-*Funcionalidades:*
+##*Funcionalidades:*
 
 *Codificação*: Permite que o usuário insira uma mensagem e a aplicação então gera a mensagem codificada.
+
 *Decodificação*: Permite que o usuário insira uma mensagem codificada e selecione decodifique sua mensagem retornando a mensagem original.
 ---
 ## **Tecnologias Utilizadas:**
 
 HTML: Estrutura da página web.
+
 CSS: Estilização da interface.
+
 JavaScript: Lógica de codificação e decodificação.
